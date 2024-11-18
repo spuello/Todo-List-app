@@ -4,7 +4,8 @@ import 'package:todo/features/signin/presentation/bloc/sign_in_bloc.dart';
 
 import 'features/signin/presentation/sign_screen.dart';
 import 'features/signin/usecase/sign_in.dart';
-import 'features/todo/todo_list_screen.dart';
+import 'features/todo/presentation/todo_bloc.dart';
+import 'features/todo/presentation/todo_list_screen.dart';
 import 'injection_container.dart';
 
 class AppRouter {
@@ -23,7 +24,10 @@ class AppRouter {
         );
       case TodoListScreen.routeName:
         return _buildPage(
-          const TodoListScreen(),
+          BlocProvider.value(
+            value: sl<TodoBloc>()..add(FetchTodos()),
+            child: TodoListScreen(),
+          ),
           settings: settings,
         );
 
