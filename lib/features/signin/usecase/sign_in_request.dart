@@ -1,4 +1,6 @@
-class SignInRequest {
+import 'package:equatable/equatable.dart';
+
+class SignInRequest extends Equatable {
   final String email;
   final String password;
 
@@ -6,4 +8,7 @@ class SignInRequest {
     required this.email,
     required this.password,
   });
+
+  @override
+  List<Object?> get props => [email, password];
 }
