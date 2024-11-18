@@ -46,3 +46,4 @@ app.*.map.json
 /android/app/release
 
 commit_and_push.sh
+pubspec.lock

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:todo/theme/theme.dart';
 
 import 'app_router.dart';
+import 'injection_container.dart' as di;
 
 void main() {
+  di.init();
   runApp(App());
 }
 

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo/features/signin/presentation/bloc/sign_in_bloc.dart';
 
 import 'features/signin/presentation/sign_screen.dart';
+import 'features/signin/usecase/sign_in.dart';
 import 'features/todo/todo_list_screen.dart';
+import 'injection_container.dart';
 
 class AppRouter {
   const AppRouter();
@@ -11,7 +15,10 @@ class AppRouter {
       case '/':
       case SignInScreen.routeName:
         return _buildPage(
-          const SignInScreen(),
+          BlocProvider(
+            create: (context) => SignInBloc(signInUsecase: sl<SignIn>()),
+            child: SignInScreen(),
+          ),
           settings: settings,
         );
       case TodoListScreen.routeName:

@@ -7,7 +7,7 @@ final Map<String, String> _cachedUsers = {
 class AuthRepositoryLocalDbImpl implements AuthRepository {
   @override
   Future<bool> sigIn({required String email, required String password}) async {
-    await Future.delayed(Duration(milliseconds: 3000));
+    await Future.delayed(Duration(milliseconds: 1000));
     final user = _cachedUsers[email];
     print(user);
     return user != null && user == password;
