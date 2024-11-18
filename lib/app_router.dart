@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'features/signin/sign_screen.dart';
 import 'features/todo/todo_list_screen.dart';
 
 class AppRouter {
@@ -8,6 +9,11 @@ class AppRouter {
   Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
+      case SignInScreen.routeName:
+        return _buildPage(
+          const SignInScreen(),
+          settings: settings,
+        );
       case TodoListScreen.routeName:
         return _buildPage(
           const TodoListScreen(),

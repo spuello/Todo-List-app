@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo/features/todo/todo_list_screen.dart';
+import 'package:todo/theme/theme.dart';
 
 import 'app_router.dart';
 
@@ -15,6 +15,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'To-Do-List',
       onGenerateRoute: _appRouter.generateRoute,
+      theme: appTheme(),
     );
   }
 }

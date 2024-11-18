@@ -15,15 +15,18 @@ class _TodoListScreenState extends State<TodoListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('To-Do List'),
-      ),
-      body: ListView(children: _getItems()),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _displayDialog(context),
-        tooltip: 'Add Item',
-        child: Icon(Icons.add),
+    return PopScope(
+      canPop: true,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('To-Do List'),
+        ),
+        body: ListView(children: _getItems()),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => _displayDialog(context),
+          tooltip: 'Add Item',
+          child: Icon(Icons.add),
+        ),
       ),
     );
   }
